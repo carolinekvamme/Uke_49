@@ -1,0 +1,17 @@
+nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+a{
+    color: rgb(112, 107, 182);
+    text-decoration: none;
+    text-align: center;
+    font-size: large;
+}
+div{
+    margin: auto; 
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1 og 2</title>
+</head>
+<body>
+    <p id="pSpm"></p>
+    <input type="text" id="inpSvar">
+    <button id="btnForrige">Forrige</button>
+    <button id="btnNeste">Neste</button>
+    <button id="btnSjekk">Sjekk svar</button>
+    <p id="pPoeng">Antall poeng: </p>
+
+    <script>
+        var pSpm = document.getElementById("pSpm");
+        var btnNeste = document.getElementById("btnNeste");
+        var btnForrige = document.getElementById("btnForrige");
+        var inpSvar = document.getElementById("inpSvar");
+        var pPoeng = document.getElementById("pPoeng");
+        var i = 0; 
+
+        var poeng = [];
+
+        var spmArray = [
+                            {
+                                spm: `Hva heter rektor?`, 
+                                svar: `Brynhild`
+                            },
+                            {
+                                spm: `Hvor gammel er rektor?`, 
+                                svar: 55
+                            },
+                            {
+                                spm: `<p>Hva er dette bilde av?<p> 
+                                    <img src="${"https://cms.qz.com/wp-content/uploads/2016/10/2427770107_e7be35d768_o-e1475851811724.jpg?quality=75&strip=all&w=3200&h=1800"}" width="150px">`,
+                                svar: `And`
+                            },
+                        ];
+        
+        pSpm.innerHTML = spmArray[0].spm;
+
+        function visPoeng(){
+            pPoeng.innerHTML = "Antall poeng: " + poeng.length;
+        }
+
+        btnNeste.onclick = function() {
+            if (inpSvar.value === String(spmArray[i].svar)) {
+                alert("Det stemmer! Bravo"); 
+                poeng.push("Riktig")
+            }
+            else {
+                alert("Sorry, det var feil");
+            }
+            i++;
+            visPoeng();
+            pSpm.innerHTML = spmArray[i].spm;
+            inpSvar.value = "";
+
+        }
+
+        btnForrige.onclick = function() {
+            i--;
+            pSpm.innerHTML = spmArray[i].spm;
+            inpSvar.value = "";
+        }
+
+        btnSjekk.onclick = function() {
+            if (inpSvar.value === String(spmArray[i].svar)) {
+                alert("Det stemmer! Bravo"); 
+            }
+            else {
+                alert("Sorry, det var feil");
+            }
+            inpSvar.value = "";
+        }
+
+
+
+        
+
+                    
+    </script>
+    
+</body>
+</html>
